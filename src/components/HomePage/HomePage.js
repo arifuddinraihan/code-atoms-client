@@ -4,30 +4,27 @@ import { Link } from 'react-router-dom';
 
 const HomePage = () => {
     return (
-        <div className='mx-auto flex flex-col justify-center'>
-            <div className="hero bg-transparent">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div>
-                        <Player src={'https://assets5.lottiefiles.com/private_files/lf30_igfaivqx.json'}
-                            className="player h-64"
+        <div class="min-h-screen bg-white dark:bg-gray-900">
+            <div class="container px-6 mx-auto">
+                <div class="items-center flex flex-col lg:flex-row-reverse">
+                    <div class="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+                        <Player src={'https://assets2.lottiefiles.com/packages/lf20_es4p9zph.json'}
+                            className="player w-full h-full lg:max-w-2xl"
                             loop
-                            autoplay
-                        ></Player>
+                            autoplay></Player>
                     </div>
-                    <div className=''>
-                        <h1 className="text-5xl font-bold mt-4 lg:mt-0 text-secondary hover:text-cyan-800">404</h1>
-                        <p className="py-6">Sorry we couldn't find
-                            <span className='px-2 text-cyan-600 text-2xl'>this page.</span></p>
-                        <Link to={'/'} className=' flex gap-3'>
-                            <button class="px-4 inline py-2 text-sm font-medium leading-5 shadow text-white transition-colors duration-150 border border-transparent rounded-lg focus:outline-none focus:shadow-outline-blue bg-cyan-500 active:bg-cyan-900 hover:bg-cyan-400">back to homepage</button>
-                        </Link>
+                    <div class="w-full lg:w-1/2">
+                        <div class="lg:max-w-lg">
+                            <h1 class="text-2xl font-semibold text-gray-800 uppercase dark:text-white lg:text-3xl">Best Place To Choose Your Clothes</h1>
+
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro beatae error laborum ab amet sunt recusandae? Reiciendis natus perspiciatis optio.</p>
+
+                            <button class="w-full tracking-wider px-6 py-2.5 mt-6 text-sm text-white uppercase transition-colors duration-300 transform bg-blue-600 rounded-md lg:w-auto hover:bg-blue-500 focus:outline-none focus:bg-blue-500">Shop Now</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className=''>
-
-            </div>
-        </div>
+        </div >
     );
 };
 
