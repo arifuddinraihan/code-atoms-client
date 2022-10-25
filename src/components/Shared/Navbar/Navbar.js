@@ -36,13 +36,15 @@ const Navbar = () => {
                         <li><NavLink to={'/blog'} className={({ isActive }) => isActive ? 'bg-success dark:bg-success font-bold' : undefined}>Blog</NavLink></li>
                     </ul>
                 </div>
-                <Link to={'/'}
+                <div
                     className="ml-3 transition-colors duration-300 transform text-gray-800 hover:text-white dark:text-success dark:hover:text-white">
-                    <div className='flex justify-start text-xs items-center gap-2'>
-                        <img className='hidden md:block' src="code-atom-icon.svg" style={{ width: "10%", height: "10%" }}></img>
-                        <p className='text-sm md:text-xl lg:text-3xl font-bold'>Code Atoms</p>
+                    <div className='flex text-xs items-center gap-2'>
+                        <img className='hidden md:block flex-shrink: 1' src="code-atom-icon.svg" style={{ width: "10%", height: "10%" }}></img>
+                        <Link to={'/'} className='text-sm md:text-xl lg:text-3xl font-bold justify-self-stretch'>
+                            <p>Code Atoms</p>
+                        </Link>
                     </div>
-                </Link>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 gap-2">
