@@ -6,7 +6,7 @@ const ErrorPage = () => {
     return (
         <div className='mx-auto flex flex-col justify-center'>
             <div className="hero min-h-screen bg-transparent">
-                <div className="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col lg:flex-row-reverse">
                     <Player src={'https://assets2.lottiefiles.com/packages/lf20_m6k6uhad.json'}
                         className="player"
                         loop
