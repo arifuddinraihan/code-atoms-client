@@ -1,9 +1,10 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import React from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa"
+import { Link } from 'react-router-dom';
 const Login = () => {
     return (
-        <div className='bg-white dark:bg-gray-800'>
+        <div className='bg-white dark:bg-gray-800 xl:min-h-screen'>
             <div className="pt-4 xl:pt-48 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
                 <div className="hidden bg-cover lg:block lg:w-1/2">
                     <Player 
@@ -68,7 +69,7 @@ const Login = () => {
                     <div className="flex items-center justify-between mt-4">
                         <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
 
-                        <a href="#" className="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign up</a>
+                        <Link to={'/register'} className="text-sm text-blue-500 hover:underline dark:text-blue-400 uppercase">or sign up</Link>
 
                         <span className="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
                     </div>

@@ -63,7 +63,7 @@ const Navbar = () => {
                             <img src="https://placeimg.com/80/80/people" />
                         </div>
                     </label>
-                    <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 dark:bg-gray-600 dark:text-slate-300">
                         <li><Link to={'/login'} className='font-bold'>Login</Link></li>
                         <li><a>Logout</a></li>
                     </ul>

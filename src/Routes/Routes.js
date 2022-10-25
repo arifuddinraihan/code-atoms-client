@@ -6,6 +6,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
 import HomePage from "../components/HomePage/HomePage";
+import AllCourses from "../components/Courses/AllCourses";
 
 export const routes = createBrowserRouter([
     {
@@ -18,7 +19,8 @@ export const routes = createBrowserRouter([
                 element: <HomePage></HomePage>
             },
             {
-                path: '/courses'
+                path: '/courses',
+                element : <AllCourses></AllCourses>
             },
             {
                 path: '/faq',
