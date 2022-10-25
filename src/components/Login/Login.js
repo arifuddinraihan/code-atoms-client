@@ -3,8 +3,8 @@ import React from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa"
 const Login = () => {
     return (
-        <div className='bg-white dark:bg-gray-800 h-screen'>
-            <div className="pt-4 lg:pt-28 xl:pt-48 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
+        <div className='bg-white dark:bg-gray-800'>
+            <div className="pt-4 xl:pt-48 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
                 <div className="hidden bg-cover lg:block lg:w-1/2">
                     <Player 
                     src={'https://assets4.lottiefiles.com/packages/lf20_KvK0ZJBQzu.json'} 
