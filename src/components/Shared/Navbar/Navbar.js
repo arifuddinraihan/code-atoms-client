@@ -37,8 +37,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to={'/'}
-                    className="btn btn-ghost normal-case text-lg md:text-xl lg:text-3xl font-bold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
-                    Code Atoms</Link>
+                    className="ml-3 text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
+                    <div className='flex justify-start text-xs items-center gap-2'>
+                        <img className='hidden md:block' src="code-atom-icon.svg" style={{ width: "10%", height: "10%" }}></img>
+                        <p className='text-sm md:text-xl lg:text-3xl font-bold'>Code Atoms</p>
+                    </div>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 gap-2">
@@ -48,7 +52,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="bg-green-200 p-4 rounded-3xl" onClick={handleThemeSwitch}>
+                <button className="btn btn-ghost rounded-3xl" onClick={handleThemeSwitch}>
                     Dark Mode
                 </button>
                 <div className="dropdown dropdown-end">
@@ -58,13 +62,6 @@ const Navbar = () => {
                         </div>
                     </label>
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
                         <li><a>Logout</a></li>
                     </ul>
                 </div>
