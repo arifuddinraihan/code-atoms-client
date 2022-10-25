@@ -5,31 +5,36 @@ import Main from "../Layout/Main";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
 import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
+import HomePage from "../components/HomePage/HomePage";
 
 export const routes = createBrowserRouter([
     {
-        path : '/',
-        element : <Main></Main>,
-        errorElement : <ErrorPage></ErrorPage>,
-        children : [
+        path: '/',
+        element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
             {
-                path : '/courses'
+                path: '/',
+                element: <HomePage></HomePage>
             },
             {
-                path : '/faq',
-                element : <Faq></Faq>
+                path: '/courses'
             },
             {
-                path : '/blog',
-                element : <Blog></Blog>
+                path: '/faq',
+                element: <Faq></Faq>
             },
             {
-                path : '/login',
-                element : <Login></Login>
+                path: '/blog',
+                element: <Blog></Blog>
             },
             {
-                path : '/register',
-                element : <Register></Register>
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             }
         ]
     }

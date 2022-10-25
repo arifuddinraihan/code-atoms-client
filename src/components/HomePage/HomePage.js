@@ -2,16 +2,18 @@ import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { Link } from 'react-router-dom';
 
-const ErrorPage = () => {
+const HomePage = () => {
     return (
         <div className='mx-auto flex flex-col justify-center'>
-            <div className="hero min-h-screen bg-transparent">
+            <div className="hero bg-transparent">
                 <div className="hero-content flex-col lg:flex-row-reverse">
-                    <Player src={'https://assets2.lottiefiles.com/packages/lf20_m6k6uhad.json'}
-                        className="player"
-                        loop
-                        autoplay
-                    ></Player>
+                    <div>
+                        <Player src={'https://assets5.lottiefiles.com/private_files/lf30_igfaivqx.json'}
+                            className="player h-64"
+                            loop
+                            autoplay
+                        ></Player>
+                    </div>
                     <div className=''>
                         <h1 className="text-5xl font-bold mt-4 lg:mt-0 text-secondary hover:text-cyan-800">404</h1>
                         <p className="py-6">Sorry we couldn't find
@@ -29,4 +31,4 @@ const ErrorPage = () => {
     );
 };
 
-export default ErrorPage
+export default HomePage;
