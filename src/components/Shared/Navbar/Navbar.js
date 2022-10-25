@@ -24,7 +24,7 @@ const Navbar = () => {
         setTheme(theme === "dark" ? "light" : "dark");
     };
     return (
-        <div className="navbar bg-success">
+        <div className="navbar bg-success transition-colors duration-300 transform dark:bg-white dark:hover:bg-gray-800 dark:hover:text-white shadow-xl sticky top-0 z-20 ">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -37,7 +37,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <Link to={'/'}
-                    className="ml-3 text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-700 dark:hover:text-gray-300">
+                    className="ml-3 transition-colors duration-300 transform text-gray-800 hover:text-white dark:text-success dark:hover:text-gray-800">
                     <div className='flex justify-start text-xs items-center gap-2'>
                         <img className='hidden md:block' src="code-atom-icon.svg" style={{ width: "10%", height: "10%" }}></img>
                         <p className='text-sm md:text-xl lg:text-3xl font-bold'>Code Atoms</p>
@@ -46,9 +46,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 gap-2">
-                    <li><NavLink to={'/courses'} className={({ isActive }) => isActive ? 'bg-white font-bold' : undefined}>Courses</NavLink></li>
-                    <li><NavLink to={'/faq'} className={({ isActive }) => isActive ? 'bg-white font-bold' : undefined}>FAQ</NavLink></li>
-                    <li><NavLink to={'/blog'} className={({ isActive }) => isActive ? 'bg-white font-bold' : undefined}>Blog</NavLink></li>
+                    <li><NavLink to={'/courses'} className={({ isActive }) => isActive ? 'bg-white dark:bg-success font-bold' : undefined}>Courses</NavLink></li>
+                    <li><NavLink to={'/faq'} className={({ isActive }) => isActive ? 'bg-white dark:bg-success font-bold' : undefined}>FAQ</NavLink></li>
+                    <li><NavLink to={'/blog'} className={({ isActive }) => isActive ? 'bg-white dark:bg-success font-bold' : undefined}>Blog</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
