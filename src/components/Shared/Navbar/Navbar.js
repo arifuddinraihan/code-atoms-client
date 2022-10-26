@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { AuthContext } from '../../../context/AuthProvider';
 
 const Navbar = () => {
+
+    // Dark mode Theme 
     const [theme, setTheme] = useState(null);
     useEffect(() => {
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -25,7 +27,7 @@ const Navbar = () => {
         setTheme(theme === "dark" ? "light" : "dark");
     };
 
-    // Context Used here
+    // Auth Context Used here
     const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
