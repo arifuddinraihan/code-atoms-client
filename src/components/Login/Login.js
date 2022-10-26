@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider } from "firebase/auth";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { Player } from '@lottiefiles/react-lottie-player';
@@ -20,6 +21,21 @@ const Login = () => {
         console.log("Google Login Wrking")
 
         providerLogin(googleProvider)
+            .then(res => {
+                const user = res.user
+                console.log(user)
+                navigate(from, { replace: true })
+            })
+            .catch(e => console.error(e))
+    }
+
+    const githubProvider = new GithubAuthProvider()
+
+    const handleGithubLogin = (event) => {
+        event.preventDefault()
+        console.log("Github Login Wrking")
+
+        providerLogin(githubProvider)
             .then(res => {
                 const user = res.user
                 console.log(user)
@@ -49,7 +65,7 @@ const Login = () => {
 
     return (
         <div className='bg-white dark:bg-gray-800 xl:min-h-screen'>
-            <div className="pt-4 xl:pt-48 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
+            <div className="pt-4 xl:pt-7 flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800 lg:max-w-4xl">
                 <div className="hidden bg-cover lg:block lg:w-1/2">
                     <Player
                         src={'https://assets4.lottiefiles.com/packages/lf20_KvK0ZJBQzu.json'}
@@ -74,7 +90,9 @@ const Login = () => {
 
                         <span className="w-5/6 px-4 py-3 font-bold text-center">Sign in with Google</span>
                     </button>
-                    <button className="w-full flex items-center justify-center mt-4 bg-slate-200 text-gray-600 transition-colors duration-300 transform hover:text-white border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-slate-500 dark:hover:bg-gray-600 dark:bg-slate-800">
+                    <button
+                        onClick={handleGithubLogin}
+                        className="w-full flex items-center justify-center mt-4 bg-slate-200 text-gray-600 transition-colors duration-300 transform hover:text-white border rounded-lg dark:border-gray-700 dark:text-gray-200 hover:bg-slate-500 dark:hover:bg-gray-600 dark:bg-slate-800">
                         <div className="px-4 py-2">
                             <FaGithub></FaGithub>
                         </div>
@@ -94,7 +112,7 @@ const Login = () => {
 
                         <div className="mt-4">
                             <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="LoggingEmailAddress">Email Address</label>
-                            <input id="LoggingEmailAddress" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" name="email" required/>
+                            <input id="LoggingEmailAddress" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="email" name="email" required />
                         </div>
 
                         <div className="mt-4">
@@ -103,7 +121,7 @@ const Login = () => {
                                 <a href="#" className="text-xs text-gray-500 dark:text-gray-300 hover:underline">Forget Password?</a>
                             </div>
 
-                            <input id="loggingPassword" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" name="password" required/>
+                            <input id="loggingPassword" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" name="password" required />
                         </div>
 
                         <div className="mt-8">
