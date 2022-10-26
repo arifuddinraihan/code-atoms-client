@@ -82,13 +82,13 @@ const Navbar = () => {
                             {
                                 user ?
                                     <>
-                                        <span>{user?.displayName}</span>
-                                        <button className="btn btn-ghost" onClick={handleLogOut}>Log out</button>
+                                        <li><span>{user?.displayName}</span></li>
+                                        <li><button className="btn btn-sm btn-ghost" onClick={handleLogOut}>Log out</button></li>
                                     </>
                                     :
                                     <>
-                                        <Link to='/login'>Login</Link>
-                                        <Link to='/register'>Register</Link>
+                                        <li><Link to='/login'>Login</Link></li>
+                                        <li><Link to='/register'>Register</Link></li>
                                     </>
                             }
                         </>

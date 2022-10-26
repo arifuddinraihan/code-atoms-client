@@ -9,10 +9,10 @@ const AllCourses = () => {
         <div className='bg-white dark:bg-gray-800 py-3 md:py-5 lg:py-8'>
             <div className='container mx-auto'>
                 <div className='flex flex-col lg:flex-row gap-10'>
-                    <div className='hidden lg:block'>
+                    <div className='hidden lg:block flex-none'>
                         <CourseCategory category={category}></CourseCategory>
                     </div>
-                    <div className='container mx-auto'>
+                    <div className='flex-initial'>
                         <Outlet></Outlet>
                     </div>
                 </div>

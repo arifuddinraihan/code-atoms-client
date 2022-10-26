@@ -6,7 +6,7 @@ const CategoryWiseCourse = () => {
     const catWiseCourse = useLoaderData()
     console.log(catWiseCourse)
     return (
-        <div className='lg:pb-24'>
+        <div className='lg:pb-24 px-2 md:px-4'>
             <div className='grid grid-cols-1'>
 
                 {
