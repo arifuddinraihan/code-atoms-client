@@ -78,7 +78,7 @@ const Navbar = () => {
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 dark:bg-gray-600 dark:text-slate-300">
                         <>
                             {
-                                user?.uid ?
+                                user ?
                                     <>
                                         <span>{user?.displayName}</span>
                                         <button className="btn btn-ghost" onClick={handleLogOut}>Log out</button>

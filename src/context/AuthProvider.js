@@ -25,14 +25,6 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const updateUserProfile = (profile) => {
-        return updateProfile(auth.currentUser, profile);
-    }
-
-    const verifyEmail = () => {
-        return sendEmailVerification(auth.currentUser);
-    }
-
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
@@ -40,10 +32,9 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log('inside auth state change', currentUser);
-
-            if (currentUser === null) {
-                setUser(currentUser);
+            if (user === null) {
+                setUser(currentUser)
+                console.log('inside auth state change', currentUser);
             }
             setLoading(false);
         });
@@ -60,8 +51,6 @@ const AuthProvider = ({ children }) => {
         setLoading,
         providerLogin,
         logOut,
-        updateUserProfile,
-        verifyEmail,
         createUser,
         signIn
     }

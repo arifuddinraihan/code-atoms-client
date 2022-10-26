@@ -1,18 +1,49 @@
+import React, { useContext, useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
-import React from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Register = () => {
+    const [error, setError] = useState('');
+    const { createUser } = useContext(AuthContext);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        // const form = event.target;
+        // const email = form.email?.value;
+        // const password = form.password?.value;
+        // console.log(email, password)
+        const form = event.target;
+        const name = form.name?.value;
+        const photoURL = form.photoURL?.value;
+        const email = form.email?.value;
+        const password = form.password?.value;
+
+        // console.log(name, photoURL, email, password);
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                form.reset();
+            })
+            .catch(e => {
+                console.error(e);
+                setError(e.message);
+            });
+    }
+
     return (
         <section class="bg-white dark:bg-gray-900">
             <div class="container flex items-center justify-center py-4 px-6 mx-auto">
-                <form class="w-full max-w-md">
+                <form class="w-full max-w-md" onSubmit={handleSubmit}>
                     <Player
                         src='https://assets8.lottiefiles.com/packages/lf20_wd1udlcz.json'
                         class="player"
                         loop
                         autoplay
-                        style={{ height : "10rem" }}
+                        style={{ height: "10rem" }}
                     ></Player>
                     <div class="flex items-center justify-center mt-6">
                         <p class="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-b-2 border-blue-500 dark:border-blue-400 dark:text-white">
@@ -27,7 +58,7 @@ const Register = () => {
                             </svg>
                         </span>
 
-                        <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username" />
+                        <input type="text" class="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Username"  name="name"/>
                     </div>
 
                     <label for="dropzone-file" class="flex items-center px-3 py-3 mx-auto mt-6 text-center bg-white border-2 border-dashed rounded-md cursor-pointer dark:border-gray-600 dark:bg-gray-900">
@@ -37,7 +68,7 @@ const Register = () => {
 
                         <h2 class="mx-3 text-gray-400">Profile Photo</h2>
 
-                        <input id="dropzone-file" type="file" class="hidden" />
+                        <input id="dropzone-file" type="file" class="hidden" name="photoURL"/>
                     </label>
 
                     <div class="relative flex items-center mt-6">
@@ -47,7 +78,8 @@ const Register = () => {
                             </svg>
                         </span>
 
-                        <input type="email" class="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address" />
+                        <input name="email" type="email" class="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Email address"
+                            required />
                     </div>
 
                     <div class="relative flex items-center mt-4">
@@ -57,7 +89,8 @@ const Register = () => {
                             </svg>
                         </span>
 
-                        <input type="password" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password" />
+                        <input name="password" type="password" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"
+                            required />
                     </div>
 
                     <div class="relative flex items-center mt-4">
@@ -67,7 +100,8 @@ const Register = () => {
                             </svg>
                         </span>
 
-                        <input type="password" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password" />
+                        <input type="password" class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Confirm Password"
+                         />
                     </div>
 
                     <div class="mt-6">
