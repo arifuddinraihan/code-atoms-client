@@ -8,6 +8,7 @@ import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
 import HomePage from "../components/HomePage/HomePage";
 import AllCourses from "../components/Courses/AllCourses";
 import CategoryWiseCourse from "../components/Courses/CategoryWiseCourse";
+import CourseModal from "../components/Courses/CourseModal";
 
 export const routes = createBrowserRouter([
     {
@@ -29,8 +30,10 @@ export const routes = createBrowserRouter([
                         loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
                     },
                     {
-                        path : '/courses/:id',
-                    }
+                        path : '/category/:id/courses/:id',
+                        element : <CourseModal></CourseModal>,
+                        loader : ({params}) => fetch(`http://localhost:5000/category/${params.id}/courses/${params.id}`)
+                    },
                 ]
             },
             {

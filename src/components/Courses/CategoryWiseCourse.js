@@ -4,10 +4,9 @@ import Course from './Course';
 
 const CategoryWiseCourse = () => {
     const catWiseCourse = useLoaderData()
-    console.log(catWiseCourse)
     return (
         <div className='lg:pb-24 px-2 md:px-4'>
-            <div className='grid grid-cols-1'>
+            <div className='grid grid-cols-1 gap-2 lg:gap-4'>
 
                 {
                     catWiseCourse.map(singleCourse => <Course

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import CourseModal from './CourseModal';
 
 const Course = ({ singleCourse }) => {
-    const { category, description, image, title, rating } = singleCourse
+    const { id, category, category_id, description, image, title, rating } = singleCourse
     const { count, rate } = rating
+
     return (
         <div className="card lg:card-side bg-base-100 dark:bg-gray-800 shadow-xl">
             <figure><img src={image} alt={title} /></figure>
@@ -16,9 +19,10 @@ const Course = ({ singleCourse }) => {
                         <FaStar></FaStar> {rate}
                     </div>
                     <div>Reviews: {count}</div>
-                    <div>
-                        <button className='btn btn-success'>See More</button>
-                    </div>
+                    <Link to={`/category/${category_id}/courses/${id}`}>
+                        <button 
+                         className="btn modal-button btn-success">open modal</button>
+                    </Link>
                 </div>
             </div>
         </div>

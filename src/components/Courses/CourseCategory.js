@@ -9,8 +9,6 @@ const CourseCategory = () => {
             .then(res => res.json())
             .then(data => setCategories(data));
     }, [])
-
-    console.log(categories)
     return (
         <div className='text-start'>
             <h2 className='hidden lg:block text-md text-cyan-600 font-bold mb-4 text-center'>Total Course: {categories.length}</h2>
