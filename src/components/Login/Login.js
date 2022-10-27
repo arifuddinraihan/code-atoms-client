@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { GithubAuthProvider } from "firebase/auth";
-import { Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { toast } from 'react-toastify';
@@ -71,7 +71,6 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user
-                console.log(user);
                 form.reset();
                 navigate(from, { replace: true })
                 setError('')
@@ -132,8 +131,8 @@ const Login = () => {
                     <div className="flex items-center justify-between mt-4">
                         <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/4"></span>
 
-                        <a href="#" className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or login
-                            with email</a>
+                        <Link className="text-xs text-center text-gray-500 uppercase dark:text-gray-400 hover:underline">or login
+                            with email</Link>
 
                         <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
                     </div>
@@ -147,7 +146,7 @@ const Login = () => {
                         <div className="mt-4">
                             <div className="flex justify-between">
                                 <label className="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" htmlFor="loggingPassword">Password</label>
-                                <a href="#" className="text-xs text-gray-500 dark:text-gray-300 hover:underline">Forget Password?</a>
+                                <Link className="text-xs text-gray-500 dark:text-gray-300 hover:underline">Forget Password?</Link>
                             </div>
 
                             <input id="loggingPassword" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" name="password" required />
