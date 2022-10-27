@@ -71,7 +71,7 @@ const HomePage = () => {
                     <div className="max-w-md">
                         <h1 className="mb-5 text-5xl font-bold">Work Hard</h1>
                         <p className="mb-5">Winners embrace hard work. They love the discipline of it, the trade-off they're making to win. Losers, on the other hand, see it as punishment. And that's the difference.</p>
-                        <Link to={'/blog'}><button className="btn btn-success">Got to BLog</button></Link>
+                        <Link to={'/blog'}><button className="btn btn-success">Go to BLog</button></Link>
                     </div>
                 </div>
             </div>

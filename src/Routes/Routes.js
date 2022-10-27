@@ -29,19 +29,19 @@ export const routes = createBrowserRouter([
                     {
                         path: '/category',
                         element: <CategoryWiseCourse></CategoryWiseCourse>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/courses`)
+                        loader: ({ params }) => fetch(`https://as10-code-atoms-server.vercel.app/courses`)
                     },
                     {
                         path: '/category/:id',
                         element: <CategoryWiseCourse></CategoryWiseCourse>,
-                        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                        loader: ({ params }) => fetch(`https://as10-code-atoms-server.vercel.app/category/${params.id}`)
                     },
                 ]
             },
             {
                 path: '/courses/:id',
                 element: <CourseDetailsPage></CourseDetailsPage>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://as10-code-atoms-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/check-out',
