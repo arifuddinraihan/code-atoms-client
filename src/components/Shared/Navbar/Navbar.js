@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { AuthContext } from '../../../context/AuthProvider';
 import CourseCategory from '../../Courses/CourseCategory';
 import { FaDragon } from 'react-icons/fa';
+import { BsMoonStars } from "react-icons/bs";
 
 const Navbar = () => {
 
@@ -69,8 +70,8 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-ghost rounded-3xl" onClick={handleThemeSwitch}>
-                    Dark Mode
+                <button className="btn btn-ghost btn-sm md:btn-md lg:btn-lg rounded-full" onClick={handleThemeSwitch}>
+                    <BsMoonStars></BsMoonStars>
                 </button>
                 <div className="dropdown dropdown-end">
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
