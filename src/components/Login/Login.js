@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { GithubAuthProvider } from "firebase/auth";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { Player } from '@lottiefiles/react-lottie-player';
 

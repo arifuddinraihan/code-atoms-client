@@ -9,6 +9,8 @@ import HomePage from "../components/HomePage/HomePage";
 import AllCourses from "../components/Courses/AllCourses";
 import CategoryWiseCourse from "../components/Courses/CategoryWiseCourse";
 import CourseDetailsPage from "../components/Courses/CourseDetailsPage";
+import PrivateRoute from "./PrivateRoute";
+import Checkout from "../components/CheckoutPage/Checkout";
 
 export const routes = createBrowserRouter([
     {
@@ -22,24 +24,30 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/category',
-                element : <AllCourses></AllCourses>,
-                children : [
+                element: <AllCourses></AllCourses>,
+                children: [
                     {
-                        path : '/category',
-                        element : <CategoryWiseCourse></CategoryWiseCourse>,
+                        path: '/category',
+                        element: <CategoryWiseCourse></CategoryWiseCourse>,
                         loader: ({ params }) => fetch(`http://localhost:5000/courses`)
                     },
                     {
-                        path : '/category/:id',
-                        element : <CategoryWiseCourse></CategoryWiseCourse>,
+                        path: '/category/:id',
+                        element: <CategoryWiseCourse></CategoryWiseCourse>,
                         loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
                     },
                 ]
             },
             {
-                path : '/courses/:id',
-                element : <CourseDetailsPage></CourseDetailsPage>,
-                loader : ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
+                path: '/courses/:id',
+                element: <CourseDetailsPage></CourseDetailsPage>,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+            },
+            {
+                path: '/check-out',
+                element: <PrivateRoute>
+                    <Checkout></Checkout>
+                </PrivateRoute>
             },
             {
                 path: '/faq',

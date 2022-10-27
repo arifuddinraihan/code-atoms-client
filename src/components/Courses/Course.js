@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { FaArrowRight, FaStar } from 'react-icons/fa';
+import React from 'react';
+import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Course = ({ singleCourse }) => {
-    const { id, category, category_id, description, image, title, rating } = singleCourse
+    const { id, category, description, image, title, rating } = singleCourse
     const { count, rate } = rating
 
     return (

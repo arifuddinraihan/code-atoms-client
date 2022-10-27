@@ -1,12 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaArrowRight, FaStar } from 'react-icons/fa';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import { CheckoutContext } from '../../context/CheckoutProvider';
 
 const CourseDetailsPage = () => {
     const course = useLoaderData()
-    console.log(course)
     const { id, category, description, image, title, rating } = course
     const { count, rate } = rating
+
+    const { checkoutHanddle, courseId } = useContext(CheckoutContext)
+    
+    const accessBtn = (course) => {
+        return checkoutHanddle(course)
+    }
+
+
     return (
         <div className=' bg-white dark:bg-gray-800'>
             <div className="max-w-2xl overflow-hidden container mx-auto md:py-5 lg:py-10">
@@ -31,10 +39,11 @@ const CourseDetailsPage = () => {
                             <span className="mx-1 text-xs text-gray-600 dark:text-gray-300">Reviews : {count}</span>
                         </div>
                     </div>
-                    <button className='flex justify-between items-center gap-2 btn btn-sm md:btn-md 
-                    btn-success hover:bg-slate-200 dark:text-gray-800 mt-3'>
+                    <Link onClick={()=>accessBtn(course)}
+                        to={'/check-out'} className='flex justify-between items-center gap-2 btn btn-sm md:btn-md 
+                        btn-success hover:bg-slate-200 dark:text-gray-800 mt-3'>
                         Get Access Now <FaArrowRight></FaArrowRight>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </div>
