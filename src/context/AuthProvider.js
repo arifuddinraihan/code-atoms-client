@@ -25,6 +25,10 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
+    const verifyEmail = () =>{
+        return sendEmailVerification(auth.currentUser);
+    }
+
     const logOut = () => {
         setLoading(true);
         return signOut(auth);
@@ -48,6 +52,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
+        verifyEmail,
         setLoading,
         providerLogin,
         logOut,

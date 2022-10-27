@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser , verifyEmail} = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -18,7 +18,8 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 form.reset();
-                toast.info('User Registered!', {
+                handleEmailVerification()
+                toast.info('Please verify your email address!', {
                     position: "top-center",
                     autoClose: 500,
                     hideProgressBar: false,
@@ -32,6 +33,11 @@ const Register = () => {
             .catch(e => {
                 console.error(e);
             });
+    }
+    const handleEmailVerification  = () => {
+        verifyEmail()
+        .then(() =>{})
+        .catch(error => console.error(error));
     }
 
     return (
