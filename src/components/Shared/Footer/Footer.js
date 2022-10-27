@@ -12,7 +12,7 @@ const Footer = () => {
                         <div className="w-full -mx-6 lg:w-2/5">
                             <div className="px-6">
                                     <div
-                                        className="transition-colors duration-300 transform text-gray-800 hover:text-white dark:text-success dark:hover:text-white">
+                                        className="transition-colors duration-300 transform text-gray-800 hover:text-success dark:text-success dark:hover:text-white">
                                         <Link to={'/'} className='uppercase flex flex-row items-center gap-2 text-lg md:text-xl lg:text-3xl font-bold justify-self-stretch'>
                                             <p>Code</p>
                                             <FaDragon></FaDragon>
