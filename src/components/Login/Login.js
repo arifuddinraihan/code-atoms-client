@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { GithubAuthProvider } from "firebase/auth";
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate , Navigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { Player } from '@lottiefiles/react-lottie-player';
 
@@ -56,10 +56,11 @@ const Login = () => {
                 console.log(user);
                 form.reset();
                 navigate(from, { replace: true })
+                setError('')
             })
             .catch(e => {
-                console.error(e)
-                // setError(e.message)
+                const errorMessage = e.message
+                setError(errorMessage)
             })
     }
 
@@ -124,7 +125,11 @@ const Login = () => {
                             <input id="loggingPassword" className="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring focus:ring-blue-300" type="password" name="password" required />
                         </div>
 
-                        <div className="mt-8">
+                        <div className='mt-4'>
+                            <p className='text-red-500 text-sm md:text-lg font-semibold'>{error}</p>
+                        </div>
+
+                        <div className="mt-4">
                             <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-300 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
                                 Login
                             </button>

@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { AuthContext } from '../../../context/AuthProvider';
 import CourseCategory from '../../Courses/CourseCategory';
-import { FaDragon } from 'react-icons/fa';
+import { FaDragon, FaUser } from 'react-icons/fa';
 import { BsMoonStars } from "react-icons/bs";
 
 const Navbar = () => {
@@ -32,7 +32,7 @@ const Navbar = () => {
 
     // Auth Context Used here
     const { user, logOut } = useContext(AuthContext);
-
+    
     const handleLogOut = () => {
         logOut()
             .then(() => { })
@@ -74,9 +74,18 @@ const Navbar = () => {
                     <BsMoonStars></BsMoonStars>
                 </button>
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" alt="user"/>
+                    <label tabIndex={0} className="btn btn-ghost btn-circle">
+                        <div className="w-10">
+                            {
+                                user ?
+                                    <>
+                                        <img src={user.photoURL} className='rounded-full' alt="user" />
+                                    </>
+                                    :
+                                    <>
+                                        <FaUser></FaUser>
+                                    </>
+                            }
                         </div>
                     </label>
                     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52 dark:bg-gray-600 dark:text-slate-300">
