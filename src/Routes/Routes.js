@@ -8,7 +8,7 @@ import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
 import HomePage from "../components/HomePage/HomePage";
 import AllCourses from "../components/Courses/AllCourses";
 import CategoryWiseCourse from "../components/Courses/CategoryWiseCourse";
-import CourseModal from "../components/Courses/CourseModal";
+import CourseDetailsPage from "../components/Courses/CourseDetailsPage";
 
 export const routes = createBrowserRouter([
     {
@@ -29,12 +29,12 @@ export const routes = createBrowserRouter([
                         element : <CategoryWiseCourse></CategoryWiseCourse>,
                         loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
                     },
-                    {
-                        path : '/category/:id/courses/:id',
-                        element : <CourseModal></CourseModal>,
-                        loader : ({params}) => fetch(`http://localhost:5000/category/${params.id}/courses/${params.id}`)
-                    },
                 ]
+            },
+            {
+                path : '/courses/:id',
+                element : <CourseDetailsPage></CourseDetailsPage>,
+                loader : ({params}) => fetch(`http://localhost:5000/courses/${params.id}`)
             },
             {
                 path: '/faq',
