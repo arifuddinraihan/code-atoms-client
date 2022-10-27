@@ -5,18 +5,12 @@ import { AuthContext } from '../../../context/AuthProvider';
 import CourseCategory from '../../Courses/CourseCategory';
 import { FaDragon, FaUser } from 'react-icons/fa';
 import { BsMoonStars } from "react-icons/bs";
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
 
     // Dark mode Theme 
     const [theme, setTheme] = useState(null);
-    useEffect(() => {
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
-    }, [])
 
     useEffect(() => {
         if (theme === "dark") {
@@ -32,11 +26,21 @@ const Navbar = () => {
 
     // Auth Context Used here
     const { user, logOut } = useContext(AuthContext);
-    
+
     const handleLogOut = () => {
         logOut()
             .then(() => { })
             .catch(error => console.error(error))
+            toast.warn('Logged Out.', {
+                position: "top-center",
+                autoClose: 500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
     }
     return (
         <div className="navbar bg-success transition-colors duration-300 transform dark:bg-white dark:hover:bg-gray-800 dark:hover:text-white shadow-xl sticky top-0 z-40">

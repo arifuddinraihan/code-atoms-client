@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GoogleAuthProvider } from 'firebase/auth';
 import { GithubAuthProvider } from "firebase/auth";
-import { Link, useLocation, useNavigate , Navigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { Player } from '@lottiefiles/react-lottie-player';
+import { toast } from 'react-toastify';
 
 
 const Login = () => {
@@ -18,13 +19,20 @@ const Login = () => {
 
     const handleGoogleLogin = (event) => {
         event.preventDefault()
-        console.log("Google Login Wrking")
-
         providerLogin(googleProvider)
             .then(res => {
                 const user = res.user
-                console.log(user)
                 navigate(from, { replace: true })
+                toast.success('Successfully Logged in!', {
+                    position: "top-center",
+                    autoClose: 500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
             })
             .catch(e => console.error(e))
     }
@@ -38,8 +46,17 @@ const Login = () => {
         providerLogin(githubProvider)
             .then(res => {
                 const user = res.user
-                console.log(user)
                 navigate(from, { replace: true })
+                toast.success('Successfully Logged in!', {
+                    position: "top-center",
+                    autoClose: 500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
             })
             .catch(e => console.error(e))
     }
@@ -57,6 +74,16 @@ const Login = () => {
                 form.reset();
                 navigate(from, { replace: true })
                 setError('')
+                toast.success('Successfully Logged in!', {
+                    position: "top-center",
+                    autoClose: 500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
             })
             .catch(e => {
                 const errorMessage = e.message

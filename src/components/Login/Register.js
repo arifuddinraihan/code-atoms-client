@@ -1,17 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-    const [error, setError] = useState('');
     const { createUser } = useContext(AuthContext);
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name?.value;
-        const photoURL = form.photoURL?.value;
         const email = form.email?.value;
         const password = form.password?.value;
         // console.log(name, photoURL, email, password);
@@ -19,15 +17,21 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                setError('');
                 form.reset();
+                toast.info('User Registered!', {
+                    position: "top-center",
+                    autoClose: 500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "dark",
+                });
             })
             .catch(e => {
                 console.error(e);
-                setError(e.message);
             });
-            return <Navigate to={'/'} replace></Navigate>
     }
 
     return (

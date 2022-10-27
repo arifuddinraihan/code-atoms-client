@@ -11,7 +11,7 @@ const CourseCategory = () => {
     }, [])
     return (
         <div className='text-start'>
-            <h2 className='hidden lg:block text-md text-cyan-600 font-bold mb-4 text-center'>Total Course: {categories.length}</h2>
+            <h2 className='hidden lg:block text-md text-cyan-600 font-bold mb-4 text-center'>Categories: {categories.length}</h2>
             <div className='grid grid-cols-1 lg:pl-4 '>
                 {
                     categories.map(perCategory =>
