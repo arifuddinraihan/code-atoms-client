@@ -1,19 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FaArrowRight, FaStar } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
-import { CheckoutContext } from '../../context/CheckoutProvider';
 import ReactToPdf from "react-to-pdf";
 
 const CourseDetailsPage = () => {
     const course = useLoaderData()
-    const { category, description, image, title, rating } = course
+    const { id, category, description, image, title, rating } = course
     const { count, rate } = rating
-
-    const { checkoutHanddle } = useContext(CheckoutContext)
-
-    const accessBtn = (course) => {
-        return checkoutHanddle(course)
-    }
 
     const ref = React.createRef();
 
@@ -49,8 +42,8 @@ const CourseDetailsPage = () => {
                             </div>
                         </div>
                     </div>
-                    <Link onClick={() => accessBtn(course)}
-                        to={'/check-out'} className='flex justify-between items-center gap-2 btn btn-sm md:btn-md 
+                    <Link to={`/check-out/${id}`}
+                        className='flex justify-between items-center gap-2 btn btn-sm md:btn-md 
                         btn-success hover:bg-slate-200 dark:text-gray-800 mt-3'>
                         Get Access Now <FaArrowRight></FaArrowRight>
                     </Link>

@@ -1,12 +1,11 @@
-import React, { useContext } from 'react';
-import { CheckoutContext } from '../../context/CheckoutProvider';
+import React from 'react';
 import { toast } from 'react-toastify';
+import { useLoaderData } from 'react-router-dom';
 
 const Checkout = () => {
-    // Course Id wise cart routing via private route
-    const { courseId } = useContext(CheckoutContext)
-    const { category, image, title, price } = courseId
-    
+    // Course Id wise check-out routing via private route
+    const { category, image, title, price } = useLoaderData()
+
     // Add to cart 
     const addedToCart = () => {
         toast.success('WOW! You will be one skilled person.', {

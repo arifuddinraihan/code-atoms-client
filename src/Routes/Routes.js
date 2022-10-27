@@ -44,7 +44,8 @@ export const routes = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://as10-code-atoms-server.vercel.app/courses/${params.id}`)
             },
             {
-                path: '/check-out',
+                path: '/check-out/:id',
+                loader: ({ params }) => fetch(`https://as10-code-atoms-server.vercel.app/check-out/${params.id}`),
                 element: <PrivateRoute>
                     <Checkout></Checkout>
                 </PrivateRoute>
