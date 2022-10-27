@@ -24,9 +24,8 @@ const Navbar = () => {
         setTheme(theme === "dark" ? "light" : "dark");
     };
 
-    // Auth Context Used here
+    // User Log out
     const { user, logOut } = useContext(AuthContext);
-
     const handleLogOut = () => {
         logOut()
             .then(() => { })

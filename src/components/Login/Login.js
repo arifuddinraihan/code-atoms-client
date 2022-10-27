@@ -15,8 +15,8 @@ const Login = () => {
     const location = useLocation()
     const from = location.state?.from?.pathname
 
+    // Google User Login
     const googleProvider = new GoogleAuthProvider()
-
     const handleGoogleLogin = (event) => {
         event.preventDefault()
         providerLogin(googleProvider)
@@ -37,8 +37,8 @@ const Login = () => {
             .catch(e => console.error(e))
     }
 
+    // Github user Login
     const githubProvider = new GithubAuthProvider()
-
     const handleGithubLogin = (event) => {
         event.preventDefault()
         console.log("Github Login Wrking")
@@ -61,6 +61,7 @@ const Login = () => {
             .catch(e => console.error(e))
     }
 
+    // Login with Email and Password
     const handleLogin = (event) => {
         event.preventDefault()
         const form = event.target

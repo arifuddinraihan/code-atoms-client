@@ -13,7 +13,7 @@ const Register = () => {
         const email = form.email?.value;
         const password = form.password?.value;
         // console.log(name, photoURL, email, password);
-
+        // Creating User
         createUser(email, password)
             .then(result => {
                 const user = result.user;
@@ -34,6 +34,7 @@ const Register = () => {
                 console.error(e);
             });
     }
+    // Email Verification
     const handleEmailVerification  = () => {
         verifyEmail()
         .then(() =>{})

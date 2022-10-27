@@ -3,11 +3,11 @@ import { CheckoutContext } from '../../context/CheckoutProvider';
 import { toast } from 'react-toastify';
 
 const Checkout = () => {
-
+    // Course Id wise cart routing via private route
     const { courseId } = useContext(CheckoutContext)
-    const { id, category, description, image, title, rating, price } = courseId
-    const { count, rate } = rating
-
+    const { category, image, title, price } = courseId
+    
+    // Add to cart 
     const addedToCart = () => {
         toast.success('WOW! You will be one skilled person.', {
             position: "top-center",
