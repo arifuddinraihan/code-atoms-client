@@ -25,6 +25,11 @@ export const routes = createBrowserRouter([
                 element : <AllCourses></AllCourses>,
                 children : [
                     {
+                        path : '/category',
+                        element : <CategoryWiseCourse></CategoryWiseCourse>,
+                        loader: ({ params }) => fetch(`http://localhost:5000/courses`)
+                    },
+                    {
                         path : '/category/:id',
                         element : <CategoryWiseCourse></CategoryWiseCourse>,
                         loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)

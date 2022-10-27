@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { AuthContext } from '../../../context/AuthProvider';
 import CourseCategory from '../../Courses/CourseCategory';
+import { FaDragon } from 'react-icons/fa';
 
 const Navbar = () => {
 
@@ -52,12 +53,12 @@ const Navbar = () => {
                 </div>
                 <div
                     className="ml-3 transition-colors duration-300 transform text-gray-800 hover:text-white dark:text-success dark:hover:text-white">
-                    <div className='flex text-xs items-center gap-2'>
-                        <img className='hidden md:block flex-shrink: 1' src="code-atom-icon.svg" style={{ width: "10%", height: "10%" }}></img>
-                        <Link to={'/'} className='text-sm md:text-xl lg:text-3xl font-bold justify-self-stretch'>
-                            <p>Code Atoms</p>
-                        </Link>
-                    </div>
+                    <Link to={'/'} className=' flex flex-row items-center gap-2 text-sm md:text-xl lg:text-3xl font-bold justify-self-stretch'>
+                        <p>Code</p>
+                        <FaDragon></FaDragon>
+                        <p>Atoms</p>
+                    </Link>
+
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
