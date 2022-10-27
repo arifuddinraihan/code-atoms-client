@@ -18,7 +18,7 @@ const HomePage = () => {
                         <div className="w-full lg:w-1/2">
                             <div className="lg:max-w-lg">
                                 <h1 className="text-3xl font-bold text-gray-800 dark:text-white lg:text-4xl">
-                                    The Best Online Learning Sites and Education Courses for 2022
+                                    The Best Online Learning Site and Education Courses for Skill Development
                                 </h1>
 
                                 <p className="mt-2 text-gray-600 dark:text-gray-400">
