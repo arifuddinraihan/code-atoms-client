@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaDragon } from 'react-icons/fa';
+import footerBackground from '../../../assets/footer.svg'
 
 
 const Footer = () => {
@@ -8,17 +9,17 @@ const Footer = () => {
         <div>
             <footer className="bg-white dark:bg-gray-900">
                 <div className="container p-6 mx-auto">
-                    <div className="lg:flex">
+                    <div className="lg:flex" >
                         <div className="w-full -mx-6 lg:w-2/5">
                             <div className="px-6">
-                                    <div
-                                        className="transition-colors duration-300 transform text-gray-800 hover:text-success dark:text-success dark:hover:text-white">
-                                        <Link to={'/'} className='uppercase flex flex-row items-center gap-2 text-lg md:text-xl lg:text-3xl font-bold justify-self-stretch'>
-                                            <p>Code</p>
-                                            <FaDragon></FaDragon>
-                                            <p>Atoms</p>
-                                        </Link>
-                                    </div>
+                                <div
+                                    className="transition-colors duration-300 transform text-gray-800 hover:text-success dark:text-success dark:hover:text-white">
+                                    <Link to={'/'} className='uppercase flex flex-row items-center gap-2 text-lg md:text-xl lg:text-3xl font-bold justify-self-stretch'>
+                                        <p>Code</p>
+                                        <FaDragon></FaDragon>
+                                        <p>Atoms</p>
+                                    </Link>
+                                </div>
                                 <div className="flex mt-6 -mx-2">
                                     <Link
                                         className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
