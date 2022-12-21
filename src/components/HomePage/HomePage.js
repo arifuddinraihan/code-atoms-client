@@ -2,6 +2,8 @@ import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { Link } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
+import PrimarySpinner from '../PrimarySpinner/PrimarySpinner';
+import SecondarySpinner from '../PrimarySpinner/SecondarySpinner';
 
 const HomePage = () => {
     return (

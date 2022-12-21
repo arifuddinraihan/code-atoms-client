@@ -5,14 +5,21 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './context/AuthProvider';
 import { ToastContainer } from 'react-toastify';
+import { QueryClient } from '@tanstack/query-core';
+import { QueryClientProvider } from '@tanstack/react-query';
 import 'react-toastify/dist/ReactToastify.css'
+
+// Client created for react query
+const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <AuthProvider>
+      <QueryClientProvider client={queryClient}>
         <ToastContainer position='top-center'></ToastContainer>
         <App />
+      </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>
 );
