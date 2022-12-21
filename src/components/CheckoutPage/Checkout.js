@@ -1,14 +1,15 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
     // Course Id wise check-out routing via private route
     const { category, image, title, price } = useLoaderData()
-
+    const categoryRoute = '/category'
+    const navigate = useNavigate()
     // Add to cart 
     const addedToCart = () => {
-        toast.success('WOW! You will be one skilled person.', {
+        toast.success('Our team will contact you soon.', {
             position: "top-center",
             autoClose: 500,
             hideProgressBar: false,
@@ -18,6 +19,7 @@ const Checkout = () => {
             progress: undefined,
             theme: "dark",
         });
+        navigate(categoryRoute, { replace: true })
     }
 
 
