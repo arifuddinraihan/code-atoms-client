@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Register = () => {
     const { createUser , verifyEmail} = useContext(AuthContext);
+
+    const navigate = useNavigate()
+    const from = '/'
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -19,9 +22,10 @@ const Register = () => {
                 const user = result.user;
                 form.reset();
                 handleEmailVerification()
+                navigate(from, { replace: true })
                 toast.info('Please verify your email address!', {
                     position: "top-center",
-                    autoClose: 500,
+                    autoClose: 1500,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -97,7 +101,7 @@ const Register = () => {
                             </svg>
                         </span>
 
-                        <input name="password" type="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Password"
+                        <input name="password" type="password" className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="********"
                             required />
                     </div>
                     <div className="mt-6">

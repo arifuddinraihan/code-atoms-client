@@ -13,7 +13,7 @@ const Login = () => {
     const { providerLogin, signIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
-    const from = location.state?.from?.pathname
+    const from = location.state?.from?.pathname || '/'
 
     // Google User Login
     const googleProvider = new GoogleAuthProvider()
