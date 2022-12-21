@@ -7,6 +7,7 @@ import { FaDragon, FaUser } from 'react-icons/fa';
 import { BsMoonStars } from "react-icons/bs";
 import { toast } from 'react-toastify';
 
+
 const Navbar = () => {
 
     // Dark mode Theme 

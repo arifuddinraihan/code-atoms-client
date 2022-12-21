@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebasae/firebase.config';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth'
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth'
 
 export const AuthContext = createContext()
 const auth = getAuth(app)
@@ -25,8 +25,13 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const verifyEmail = () =>{
+    const verifyEmail = () => {
         return sendEmailVerification(auth.currentUser);
+    }
+
+    const updateUser = (userInfo) => {
+        setLoading(true)
+        return updateProfile(auth.currentUser, userInfo);
     }
 
     const logOut = () => {
@@ -56,6 +61,7 @@ const AuthProvider = ({ children }) => {
         providerLogin,
         logOut,
         createUser,
+        updateUser,
         signIn
     }
 

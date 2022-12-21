@@ -3,16 +3,18 @@ import { Player } from '@lottiefiles/react-lottie-player';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { toast } from 'react-toastify';
+import PrimarySpinner from '../PrimarySpinner/PrimarySpinner';
 
 const Register = () => {
-    const { createUser , verifyEmail} = useContext(AuthContext);
-
+    const { createUser, updateUser, loading } = useContext(AuthContext);
     const navigate = useNavigate()
     const from = '/'
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name?.value;
+        const imageURL = form.photoURL?.value;
         const email = form.email?.value;
         const password = form.password?.value;
         // console.log(name, photoURL, email, password);
@@ -20,29 +22,37 @@ const Register = () => {
         createUser(email, password)
             .then(result => {
                 const user = result.user;
-                form.reset();
-                handleEmailVerification()
-                navigate(from, { replace: true })
-                toast.info('Please verify your email address!', {
-                    position: "top-center",
-                    autoClose: 1500,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "dark",
-                });
+                const displayName = name;
+                const photoURL = imageURL;
+                const userInfo = {
+                    displayName,
+                    photoURL
+                }
+                updateUser(userInfo)
+                    .then(() => {
+                        form.reset();
+                        navigate(from, { replace: true })
+                        window.location.reload(true)
+                        toast.info('Successfully created your account!', {
+                            position: "top-center",
+                            autoClose: 1500,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "dark",
+                        });
+                    })
+                    .catch(err => console.error(err))
             })
             .catch(e => {
                 console.error(e);
             });
     }
-    // Email Verification
-    const handleEmailVerification  = () => {
-        verifyEmail()
-        .then(() =>{})
-        .catch(error => console.error(error));
+
+    if (loading){
+        return <PrimarySpinner></PrimarySpinner>
     }
 
     return (
@@ -80,7 +90,7 @@ const Register = () => {
                         </span>
 
                         <input name="photoURL" type="text" className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40" placeholder="Photo URL"
-                             />
+                        />
                     </div>
 
                     <div className="relative flex items-center mt-6">
